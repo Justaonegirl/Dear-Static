@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dear Static💙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #d0eaff, #f0f8ff);
+      color: #244c68;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #a8ddff;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #004466;
+      text-shadow: 1px 1px 2px #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      background-color: #c9ecff;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      background: #88ccf2;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      transition: all 0.2s ease-in-out;
+      display: inline-block;
+      text-align: center;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: #55bbee;
+      transform: scale(1.05);
+    }
+
+    /* Hide all sections */
+    .section {
+      display: none;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+      flex-grow: 1;
+    }
+
+    /* Show home section by default */
+    #home {
+      display: block;
+    }
+
+    /* Show section if targeted by hash */
+    .section:target {
+      display: block;
+    }
+
+    .card {
+      background-color: #ffffffee;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .pfp {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: #b2e4ff;
+      margin: 0 auto 20px;
+      display: block;
+      border: 3px solid #a0d8ff;
+    }
+
+    footer {
+      background-color: #a8ddff;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.95rem;
+      color: #003344;
+      margin-top: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #0077aa;
+      margin-top: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .comment-box {
+      background-color: #e3f0ff; /* pastel baby blue */
+      padding: 1rem 1.2rem;
+      margin-top: 20px;
+      border: 2px dashed #b0d7ff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(170, 200, 255, 0.3);
+      max-width: 100%;
+      font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+    }
+
+    .comment-box h4 {
+      margin-bottom: 0.5rem;
+      color: #5c6f8d;
+      font-size: 1.1rem;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 1rem;
+      border: 2px solid #c2e1ff;
+      resize: vertical;
+      font-family: inherit;
+      background: #ffffff;
+      color: #3a3a3a;
+      box-shadow: inset 2px 2px 5px #d4ecff;
+    }
+
+    .comment-box button {
+      margin-top: 0.75rem;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 999px;
+      background-color: #dbeeff;
+      color: #4a4a4a;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+      box-shadow: 0 2px 5px rgba(130, 170, 255, 0.4);
+    }
+
+    .comment-box button:hover {
+      background-color: #b3dcff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>💙 Dear Static 💙</header>
+
+<nav>
+  <a href="#home" aria-label="Home">Home</a>
+  <a href="#about" aria-label="About Me">About Me</a>
+  <a href="#blog" aria-label="Blog">Blog</a>
+  <a href="#contact" aria-label="Contact">Contact</a>
+</nav>
+
+<section id="home" class="section">
+  <div class="card">
+    <img src="pretty.jpg" alt="profile picture" class="pfp" />
+    <h2>Hey! I'm Anastasia 💖</h2>
+    <p style="text-align:center;">I'm 13 and this is my cute little digital space. Think journals, late-night thoughts, and everything aesthetic ig (idk what to write for the bio 🥲)✨</p>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="card">
+    <h2>About Me 👛</h2>
+    <p>Hey! I'm Anastasia, I'm 13 and I like journaling and blogging because it's just my way of communicating and all in all my thing. Well after Tech and Engineering ofc😌. I am also 
+        a tenth grader which probably sounds weird lol but ig I was an early one. I made this site to share my thoughts, ideas, moods, drama, and dreams. 
+    </p>
+    <p>I’m also really into baby blue which you already probably figured out by now lol. I also like writing stories and poems and songs, drawing and crocheting and just basically artsy stuff which is understandable since my second passion is The Arts. </p>
+    <p>I also have a Pinterest account where I post some of my drawings and now I'll be posting them here too (○｀ 3′○). <br> English is actually my first language but I've been 'trying' to learn Russian now for like 
+    maybe 7 months but ig I never really take it seriously maybe due to my ADHD lol (ง •_•)ง</p>
+    <p>Anyways these are just some of the things About Me for now✨</p>
+  </div>
+</section>
+
+<section id="blog" class="section">
+  <div class="card">
+    <h2>My Blog Posts 🧸</h2>
+    <div class="card">
+      <h3>💬 Normal School Day</h3> 
+      <p class="date"><em><strong>Posted on: Thursday June 5th 2025</strong></em></p>
+      <p>TODAY WAS boring. I lowkey thought today was going to be interesting considering the fact that I didn't eat breakfast, left home SUPER early and actually ironed my school uniform🥲.<br> 
+      I thought it was going to be 'One of Those days' yk. Like in movies when something interesting happens in the main character's life. Most of the times they don't do or completely ignore their daily routine.<br>
+      🥲Don't blame me fam (✿◡‿◡). I watch too many movies.</p>
+      <p>But for real though. Today was just so fricking boring. Nothing interesting really happened, but there's no school Tomorrow and on Monday. Tuesday's are usually kinda short days in my school. Wednesday is open house, Thursday's 
+      a public holiday and Friday and upper Monday is Mid term break.... So ig there's a lot of holidays.</p>
+      <p>As exciting as it might seem, I actually don't like the many holidays though ヾ(•ω•`)o <br>
+          I don't really like it. Sure 7th grader me would have loved it but we don't talk about her ＞﹏＜ <br></p>
+        <p>  BASICALLY, what I'm just trying to say is, I don't like the many holidays anymore. Maybe It's cause I'm growing older and stuff like that or whatever, but I just don't like that many holidays/free days anymore. <br>
+          Like can we just do and get over with the school term already 😔.</p>
+          <p>Anyways today I found some images and drawings on Pinterest that really inspired me. Here are some of them: </p>
+
+      <div class="comment-box">
+        <h4>Leave a Comment:</h4>
+        <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
+        <button id="submit-comment">Submit</button>
+      </div>
+
+      <div id="comments-list" style="margin-top: 20px;"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="card">
+    <h2>Contact Me 📬</h2>
+    <p>You can reach me on social media or email me at: <a href="mailto:anastasia@example.com">anastasia@example.com</a></p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Anastasia's Y2K Blog
+</footer>
+
+<!-- Firebase JS SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAtWSS6W0vE0LIEiEE6OI5ndWM85rRx1YM",
+    authDomain: "anastasia-2cb3b.firebaseapp.com",
+    projectId: "anastasia-2cb3b",
+    storageBucket: "anastasia-2cb3b.firebasestorage.app",
+    messagingSenderId: "793050255506",
+    appId: "1:793050255506:web:ca06d42baf91d5f557d64b",
+    measurementId: "G-B3KQHE3C89"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // DOM Elements
+  const commentInput = document.getElementById('comment-input');
+  const submitButton = document.getElementById('submit-comment');
+  const commentsList = document.getElementById('comments-list');
+
+  // Function to render comments
+  function renderComments(snapshot) {
+    commentsList.innerHTML = '';
+    snapshot.forEach(doc => {
+      const comment = doc.data().text;
+      const div = document.createElement('div');
+      div.textContent = comment;
+      div.style.padding = '10px';
+      div.style.marginBottom = '10px';
+      div.style.background = '#d0eaff';
+      div.style.borderRadius = '10px';
+      commentsList.appendChild(div);
+    });
+  }
+
+  // Listen for comments changes and update UI
+  db.collection('comments').orderBy('timestamp', 'desc').onSnapshot(renderComments);
+
+  // Add comment
+  submitButton.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if(text.length === 0) return alert('Please enter a comment.');
+
+    db.collection('comments').add({
+      text: text,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      commentInput.value = '';
+    })
+    .catch(err => {
+      console.error('Error adding comment:', err);
+    });
+  });
+
+</script>
+
+</body>
+</html>
