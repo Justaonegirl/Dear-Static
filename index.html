@@ -72,9 +72,13 @@
       flex-grow: 1;
     }
 
-    /* Show home section by default */
-    #home {
+    /* Ensure home content shows only when home is active */
+    #home-content {
       display: block;
+    }
+    /*Hide home content when another section is targeted */
+    #home-content {
+      dsiplay: none;
     }
 
     /* Show section if targeted by hash */
