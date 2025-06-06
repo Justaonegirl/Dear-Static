@@ -63,28 +63,29 @@
       transform: scale(1.05);
     }
 
-    /* Hide all sections */
-    .section {
-      display: none;
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
-      flex-grow: 1;
-    }
+  /* Hide all sections by default */
+.section {
+    display: none;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+    flex-grow: 1;
+}
 
-    /* Ensure home content shows only when home is active */
-    #home-content {
-      display: block;
-    }
-    /*Hide home content when another section is targeted */
-    #home-content {
-      dsiplay: none;
-    }
+/* Show only targeted section */
+.section:target {
+    display: block;
+}
 
-    /* Show section if targeted by hash */
-    .section:target {
-      display: block;
-    }
+/* Ensure home content shows only when home is active */
+#home-content {
+    display: block;
+}
+
+/* Hide home content when another section is targeted */
+body:has(.section:target) #home-content {
+    display: none;
+}
 
     .card {
       background-color: #ffffffee;
