@@ -176,6 +176,74 @@ body:has(.section:target) #home-content {
       background-color: #b3dcff;
       transform: scale(1.05);
     }
+    
+    #login-panel, #admin-panel {
+  background: #e6f2ff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(100, 150, 255, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #003355;
+}
+
+#login-panel h2, #admin-panel h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px #a0d8ff;
+}
+
+#login-panel input[type="email"],
+#login-panel input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #a0d8ff;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #f7fbff;
+  box-shadow: inset 2px 2px 6px #d4ecff;
+  outline: none;
+}
+
+#login-panel input[type="email"]:focus,
+#login-panel input[type="password"]:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 8px #55bbee;
+  background-color: #e1f0ff;
+}
+
+#login-btn, #logout-btn {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #89c7ff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-shadow: 0 0 4px #1a1a1a40;
+}
+
+#login-btn:hover, #logout-btn:hover {
+  background-color: #55bbee;
+  transform: scale(1.05);
+}
+
+#login-error {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+
   </style>
 </head>
 <body>
