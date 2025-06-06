@@ -311,26 +311,59 @@ body:has(.section:target) #home-content {
 
       <div id="comments-list" style="margin-top: 20px;"></div>
     </div>
-<div class="card">
-  <h3>Free Friday 😪</h3>
-  <p class="date"><em><strong>Posted on: Friday June 6th 2025</strong></em></p>
-  <p>Hi guysss ✨✨. Good morning. Good afternoon. Good evening or whatever time your own.</p>
-  <p>Today is public holiday so no school for me 😁. Its lowk kinda boring tho I wont lie...</p>
+    <div class="card">
+    <h3>Free Friday😪</h3>
+    <p class="date"><em><strong>Posted on: Friday June 6th 2025</strong></em></p>
+    <p>Hi guysss ✨✨. Good morning. Good afternoon. Good evening or whatever time your own.</p>
+    <p>Today is public holiday so no school for me 😁. Its lowk kinda boring tho I wont lie. Mom and lil sis went out, Dad isnt at home so that leaves me, lil bro and grandma at home</p>
+      <div class="comment-box">
+        <h4>Leave a Comment:</h4>
+        <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
+        <button id="submit-comment">Submit</button>
+      </div>
 
-  <div class="comment-box">
-    <h4>Leave a Comment:</h4>
-    <textarea id="comment-input-2" placeholder="Write your comment here..."></textarea>
-    <button id="submit-comment-2">Submit</button>
+      <div id="comments-list" style="margin-top: 20px;"></div>
+    </div>
   </div>
-  <div id="comments-list-2" style="margin-top: 20px;"></div>
+</section>
+
+</div>
+    
+<section id="contact" class="section">
+  <div class="card">
+    <h2>Contact Me 📬</h2>
+    <p>You can reach me on social media or email me at: <a href="mailto:anastasiafisuyi@gmail.com">anastasiafisuyi@gmail.com</a></p>
+  </div>
+</section>
+  
+   <section id="signup" class="section">
+  <div class="card">
+    <div id="login-panel">
+  <h2>Create Your Giggle Account 📬</h2>
+  <input type="email" id="login-email" placeholder="Email"><br><br>
+  <input type="password" id="login-password" placeholder="Password"><br><br>
+  <button id="login-btn">Log In</button>
+  <p id="login-error" style="color: red;"></p>
 </div>
 
-<!-- Firebase Configuration & Comment Handling -->
+<div id="admin-panel" style="display:none;">
+  <h2>Welcome, Admin!</h2>
+  <button id="logout-btn">Log Out</button>
+  <!-- Add anything you want only YOU to see here -->
+</div>
+  </div>
+</section>
+  
+<footer>
+  &copy; 2025 Anastasia's Y2K Blog
+</footer>
+
+<!-- Firebase JS SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
 <script>
-  // Firebase Configuration
+  // Your Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyAtWSS6W0vE0LIEiEE6OI5ndWM85rRx1YM",
     authDomain: "anastasia-2cb3b.firebaseapp.com",
@@ -345,11 +378,13 @@ body:has(.section:target) #home-content {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // Function to render comments dynamically
-  function renderComments(snapshot, listId) {
-    const commentsList = document.getElementById(listId);
-    if (!commentsList) return;
-    
+  // DOM Elements
+  const commentInput = document.getElementById('comment-input');
+  const submitButton = document.getElementById('submit-comment');
+  const commentsList = document.getElementById('comments-list');
+
+  // Function to render comments
+  function renderComments(snapshot) {
     commentsList.innerHTML = '';
     snapshot.forEach(doc => {
       const comment = doc.data().text;
@@ -363,31 +398,43 @@ body:has(.section:target) #home-content {
     });
   }
 
-  // Listen for changes in comments and update UI
-  db.collection('comments').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-    renderComments(snapshot, 'comments-list-1');
-    renderComments(snapshot, 'comments-list-2');
-  });
+  // Listen for comments changes and update UI
+  db.collection('comments').orderBy('timestamp', 'desc').onSnapshot(renderComments);
 
-  // Add event listeners for comment submission
-  document.querySelectorAll("[id^='submit-comment']").forEach(button => {
-    button.addEventListener("click", (event) => {
-      const card = event.target.closest(".card");
-      const commentInput = card.querySelector("textarea").value.trim();
+  // Add comment
+  submitButton.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if(text.length === 0) return alert('Please enter a comment.');
 
-      if (commentInput.length === 0) {
-        alert("Please enter a comment.");
-        return;
-      }
-
-      db.collection("comments").add({
-        text: commentInput,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        card.querySelector("textarea").value = ""; // Clear input field after submit
-      }).catch(err => console.error("Error adding comment:", err));
+    db.collection('comments').add({
+      text: text,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      commentInput.value = '';
+    })
+    .catch(err => {
+      console.error('Error adding comment:', err);
     });
   });
+  <script type="module">
+  // Import Firebase modules (use CDN or your bundler)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAtWSS6W0vE0LIEiEE6OI5ndWM85rRx1YM",
+    authDomain: "anastasia-2cb3b.firebaseapp.com",
+    projectId: "anastasia-2cb3b",
+    storageBucket: "anastasia-2cb3b.firebasestorage.app",
+    messagingSenderId: "793050255506",
+    appId: "1:793050255506:web:ca06d42baf91d5f557d64b",
+    measurementId: "G-B3KQHE3C89"
+  };
+
+ 
+
 </script>
 
 </body>
