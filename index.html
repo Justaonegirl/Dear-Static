@@ -176,9 +176,41 @@ body:has(.section:target) #home-content {
       background-color: #b3dcff;
       transform: scale(1.05);
     }
+     #account-id {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+    font-size: 1.1rem;
+    margin-right: 10px;
+  }
+  #copy-btn {
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #copy-msg {
+    margin-top: 10px;
+    color: green;
+    font-weight: 600;
+    display: none;
+  }
   </style>
 </head>
 <body>
+ 
+
+<div>
+  <input type="text" id="account-id" readonly />
+  <button id="copy-btn">Copy Account ID</button>
+  <div id="copy-msg">Copied to clipboard!</div>
+</div>
+
+
   
 <header>💙 Dear Static 💙</header>
 
@@ -314,6 +346,75 @@ body:has(.section:target) #home-content {
       console.error('Error adding comment:', err);
     });
   });
+  <script type="module">
+  // Import Firebase modules (use CDN or your bundler)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAtWSS6W0vE0LIEiEE6OI5ndWM85rRx1YM",
+    authDomain: "anastasia-2cb3b.firebaseapp.com",
+    projectId: "anastasia-2cb3b",
+    storageBucket: "anastasia-2cb3b.firebasestorage.app",
+    messagingSenderId: "793050255506",
+    appId: "1:793050255506:web:ca06d42baf91d5f557d64b",
+    measurementId: "G-B3KQHE3C89"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // DOM elements
+  const accountInput = document.getElementById('account-id');
+  const copyBtn = document.getElementById('copy-btn');
+  const copyMsg = document.getElementById('copy-msg');
+
+  // Set your user document ID here
+  const userId = 'exampleUserId123';  // <-- Replace with actual doc ID
+
+  // Fetch accountId field from Firestore user doc
+  async function loadAccountId() {
+    try {
+      const userDoc = await getDoc(doc(db, 'users', userId));
+      if (userDoc.exists()) {
+        accountInput.value = userDoc.data().accountId || 'No account ID found';
+      } else {
+        accountInput.value = 'User not found';
+      }
+    } catch (error) {
+      console.error('Error fetching account ID:', error);
+      accountInput.value = 'Error loading account ID';
+    }
+  }
+
+  loadAccountId();
+
+  // Copy button event
+  copyBtn.addEventListener('click', () => {
+    accountInput.select();
+    accountInput.setSelectionRange(0, 99999); // mobile
+
+    try {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(accountInput.value).then(() => {
+          copyMsg.style.display = 'block';
+          setTimeout(() => copyMsg.style.display = 'none', 2000);
+        });
+      } else {
+        // fallback for older browsers
+        document.execCommand('copy');
+        copyMsg.style.display = 'block';
+        setTimeout(() => copyMsg.style.display = 'none', 2000);
+      }
+    } catch {
+      alert('Copy failed. Please copy manually.');
+    }
+
+    window.getSelection().removeAllRanges();
+  });
+</script>
 
 </script>
 
